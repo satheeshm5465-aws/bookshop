@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/satheeshm5465-aws/bookshop'
+                git branch: 'main', url: 'https://github.com/satheeshm5465-aws/bookshop.git'
             }
         }
 
@@ -13,7 +13,7 @@ pipeline {
             steps {
                 sshagent(['ec2-key']) {
                     sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@<EC2-IP> << EOF
+                    ssh -o StrictHostKeyChecking=no ubuntu@43.205.124.178 << EOF
                     sudo rm -rf /var/www/html/*
                     sudo cp -r * /var/www/html/
                     sudo systemctl restart apache2
