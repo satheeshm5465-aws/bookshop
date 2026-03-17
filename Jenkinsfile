@@ -9,8 +9,13 @@ pipeline {
                     sh '''
                     chmod 400 $SSH_KEY
 
-                    ssh -i $SSH_KEY -o StrictHostKeyChecking=no $USER@43.205.124.178 << EOF
-                    sudo rm -rf /var/www/html/*
+                    ssh -i $SSH_KEY -o StrictHostKeyChecking=no $USER@43.205.124.178 << 'EOF'
+                    sudo apt update -y
+                    sudo apt install apache2 -y
+
+                    sudo mkdir -p /var/www/html
+                    sudo chmod -R 777 /var/www/html
+
                     sudo cp -r * /var/www/html/
                     sudo systemctl restart apache2
                     EOF
