@@ -9,16 +9,14 @@ pipeline {
                     sh '''
                     chmod 400 $SSH_KEY
 
-                    ssh -i $SSH_KEY -o StrictHostKeyChecking=no $USER@43.205.124.178 << 'EOF'
+                    ssh -i $SSH_KEY -o StrictHostKeyChecking=no $USER@43.205.124.178 "
                     sudo apt update -y
                     sudo apt install apache2 -y
-
                     sudo mkdir -p /var/www/html
                     sudo chmod -R 777 /var/www/html
-
-                    sudo cp -r * /var/www/html/
+                    sudo cp -r /var/lib/jenkins/workspace/bookshop/* /var/www/html/
                     sudo systemctl restart apache2
-                    EOF
+                    "
                     '''
                 }
             }
