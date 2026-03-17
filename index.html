@@ -1,17 +1,162 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Online Bookshop</title>
-</head>
-<body>
-    <h1>📚 Welcome to Bookshop</h1>
-    <p>Buy your favorite books here!</p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - Online Bookshop</title>
 
-    <h2>Available Books</h2>
-    <ul>
-        <li>DevOps Guide</li>
-        <li>AWS Basics</li>
-        <li>Terraform in Action</li>
-    </ul>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .books {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .book {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .book:hover {
+            transform: scale(1.05);
+        }
+
+        .book img {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .price {
+            color: green;
+            font-weight: bold;
+        }
+
+        .desc {
+            font-size: 14px;
+            color: #555;
+        }
+
+        button {
+            background: #27ae60;
+            border: none;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #1e8449;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 Book Collection</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+</nav>
+
+<div class="container">
+    <h2>Explore All Books</h2>
+
+    <div class="books">
+
+        <div class="book">
+            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f">
+            <h3>DevOps Mastery</h3>
+            <p class="desc">Complete guide to CI/CD, Docker, Kubernetes.</p>
+            <p class="price">₹599</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="book">
+            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353">
+            <h3>AWS for Beginners</h3>
+            <p class="desc">Learn EC2, S3, IAM with real projects.</p>
+            <p class="price">₹499</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="book">
+            <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d">
+            <h3>Terraform Guide</h3>
+            <p class="desc">Infrastructure as Code made easy.</p>
+            <p class="price">₹550</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <div class="book">
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+            <h3>Linux Essentials</h3>
+            <p class="desc">Master Linux commands and scripting.</p>
+            <p class="price">₹450</p>
+            <button>Add to Cart</button>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Bookshop | All Rights Reserved</p>
+</footer>
+
 </body>
 </html>
