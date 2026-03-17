@@ -3,17 +3,13 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                git branch: 'main', url: 'https://github.com/satheeshm5465-aws/bookshop.git'
-            }
-        }
-
         stage('Deploy to EC2') {
             steps {
-                sshagent(['ec2-key']) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'ec2-key', keyFileVariable: 'SSH_KEY', usernameVariable: 'USER')]) {
                     sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@43.205.124.178 << EOF
+                    chmod 400 $SSH_KEY
+
+                    ssh -i $SSH_KEY -o StrictHostKeyChecking=no $USER@43.205.124.178 << EOF
                     sudo rm -rf /var/www/html/*
                     sudo cp -r * /var/www/html/
                     sudo systemctl restart apache2
